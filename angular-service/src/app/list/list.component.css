@@ -1,0 +1,10 @@
+body {
+    background-color: ghostwhite;
+}
+.container {
+    margin-top: 80px
+}
+.card {
+    max-width: 600px;
+    margin: 1px auto;
+}

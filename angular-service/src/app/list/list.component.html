@@ -1,0 +1,31 @@
+<div class="container">
+  <div *ngFor="let t of tasks; let i = index;">
+    <mat-card class="card" color="primary">
+      <mat-card-title>
+        {{t.task_name}}
+      </mat-card-title>
+      <mat-card-content>
+        <p>
+          {{t.task_text}}
+        </p>
+        <div *ngIf="tasks[i].complete">
+          <button mat-raised-button color="accent" (click)="SetTaskIncomplete(tasks[i])">
+            Set Incomplete
+          </button>
+          <button mat-raised-button color="primary" disabled>
+            Set Complete
+          </button>
+        </div>
+        <div *ngIf="!tasks[i].complete">
+          <button mat-raised-button color="accent" disabled>
+            Set Incomplete
+          </button>
+          <button mat-raised-button color="primary" (click)="SetTaskComplete(tasks[i])">
+            Set Complete
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
