@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -8,7 +11,10 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
+      imports: [MatCardModule, MatButtonModule],
+      declarations: [ ListComponent ],
+      providers: [ MatCardModule,
+      MatButtonModule, HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));
