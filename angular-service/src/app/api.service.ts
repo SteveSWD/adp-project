@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { Urls } from './models/endpoints';
-import { Task } from './models/task';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,29 +11,29 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getTasks() {
-    return this.http.get(Urls.tasks)
+  public GetTasks() {
+    return this.http.get(environment.urls.tasks)
       .pipe(
-        catchError(this.errorHandler)
+        catchError(err => this.ErrorHandler(err))
       )
   }
 
   // 
-  public postUpdate(task:Task) {
-    return this.http.post(Urls.update, task)
+  public PostUpdate(task:number) {
+    return this.http.post(environment.urls.update, JSON.stringify(task))
       .pipe(
-        catchError(this.errorHandler)
+        catchError(err => this.ErrorHandler(err))
       )
 }
 
-  public postNew(data: any){
-    return this.http.post(Urls.new, data)
+  public PostNew(data: string){
+    return this.http.post(environment.urls.new, JSON.stringify(data))
       .pipe(
-        catchError(this.errorHandler)
+        catchError(err => this.ErrorHandler(err))
       )
 }
 
-  private errorHandler(error: any) {
+  private ErrorHandler(error: any) {
     return throwError(error.message || "Server Error");
   }
 }

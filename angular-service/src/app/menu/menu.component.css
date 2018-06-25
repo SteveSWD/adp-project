@@ -1,0 +1,27 @@
+.menu {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #673ab7;
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    width: 150px;
+    height: 100%;
+    z-index: 900;
+    border-top: solid black 2px;
+}
+.title {
+    color: white;
+    font-weight: bold;
+}
+button {
+    margin: 2px 0px;
+    width: 90px;
+}
+.divider {
+    width: 120px;
+    height: 2px;
+    background-color: white;
+    margin: 2px auto 10px auto;
+
+}
